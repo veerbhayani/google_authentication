@@ -38,6 +38,7 @@ dependencies:
   firebase_auth:
   google_sign_in:
   get:
+  shared_preferences:
 
 dev_dependencies:
   flutter_test:

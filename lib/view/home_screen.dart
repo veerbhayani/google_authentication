@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_authentication/view/login_screen.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 // ignore: must_be_immutable
 class HomeScreen extends StatelessWidget {
@@ -14,6 +15,8 @@ class HomeScreen extends StatelessWidget {
   Future<void> logout() async {
     await GoogleSignIn().disconnect();
     FirebaseAuth.instance.signOut();
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setBool('isLoggedIn', false); // User is logged out
   }
 
   @override
